@@ -41,7 +41,7 @@ import {
 // --- CONFIGURACIÓN GOOGLE SHEETS ---
 // IMPORTANTE: Sigue las instrucciones del archivo "Instrucciones_Google_Sheets.md"
 // y pega aquí la URL de tu Web App de Google Apps Script.
-const GOOGLE_SCRIPT_URL = '';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzEeXDkjVIc1ibIUGxKDc4KLpquNZu2RtcfOo50ku29_gvn4xswWoHErTkXaLZvLWp6/exec';
 
 // --- UTILS & HOOKS ---
 
