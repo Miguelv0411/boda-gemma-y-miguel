@@ -783,15 +783,15 @@ export default function App() {
       {/* Hero Section con Parallax */}
       <section
         id="inicio"
-        className="relative h-[calc(100vh-60px)] md:h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden bg-stone-950"
+        className="relative h-[calc(100vh-60px)] md:h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden"
       >
-        {/* Fondo borroso para rellenar toda la pantalla */}
+        {/* Fondo borroso para rellenar toda la pantalla sin oscurecer */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-60"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://i.postimg.cc/XNw9G4mr/Gemini_Generated_Image_5rucma5rucma5ruc.png')`,
-            filter: 'blur(30px) brightness(0.6)',
-            transform: 'scale(1.1)', // Para evitar los bordes claros del desenfoque
+            filter: 'blur(40px)',
+            transform: 'scale(1.2)', // Escala para evitar bordes blancos por el desenfoque
           }}
         />
 
@@ -800,12 +800,8 @@ export default function App() {
           className="absolute inset-0 z-10 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('https://i.postimg.cc/XNw9G4mr/Gemini_Generated_Image_5rucma5rucma5ruc.png')`,
-            filter: 'brightness(0.95)',
           }}
         />
-
-        {/* Gradiente sutil para integrar todo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-20 pointer-events-none" />
       </section>
 
       {/* Countdown Section */}
