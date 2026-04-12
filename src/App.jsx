@@ -231,23 +231,6 @@ const accommodations = [
     web: 'casaruraltorrecaballeros.net',
     tag: 'Torrecaballeros',
   },
-  // ZONA SEGOVIA
-  {
-    name: 'Parador de Segovia',
-    type: 'Hotel 4*',
-    desc: 'Para quienes prefieren ciudad. Vistas increíbles.',
-    contact: '921 44 37 37',
-    web: 'parador.es',
-    tag: 'Segovia',
-  },
-  {
-    name: 'Hotel Ele Acueducto',
-    type: 'Hotel 3*',
-    desc: "En el centro, junto al acueducto. 10% dto 'CORTÉS DE MORAGA'.",
-    contact: '921 42 48 00',
-    web: 'hoteleleacueducto.com',
-    tag: 'Segovia',
-  },
 ];
 
 const restaurants = [
@@ -356,6 +339,7 @@ export default function App() {
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loadingData, setLoadingData] = useState(false);
+  const [expandedAcc, setExpandedAcc] = useState(null);
 
   // --- EFECTO PARA TÍTULO Y FAVICON ---
   useEffect(() => {
@@ -849,10 +833,9 @@ export default function App() {
             Nuestra Historia
           </h2>
           <p className="text-base md:text-2xl leading-relaxed text-stone-600 font-light max-w-3xl mx-auto">
-            "Todo comenzó como una coincidencia y se convirtió en el viaje de
+            "Todo comenzó como un encuentro inesperado y se convirtió en el viaje de
             nuestras vidas. Sotosalbos, con sus calles de piedra y atardeceres
-            dorados, será el testigo de nuestro 'sí, quiero'. No imaginamos este
-            momento sin vosotros."
+            dorados, será el testigo de nuestro 'sí, quiero'. Formáis parte de nuestra historia y queremos que también los seáis de este día."
           </p>
         </FadeInSection>
       </section>
@@ -886,7 +869,7 @@ export default function App() {
                     Ceremonia
                   </h3>
                   <p className="text-amber-800 font-medium uppercase tracking-widest text-[10px]">
-                    Sagrada y Solemne
+                    NUESTRO SÍ, QUIERO
                   </p>
                 </div>
               </div>
@@ -1098,7 +1081,7 @@ export default function App() {
                 <div className="relative flex flex-col md:flex-row-reverse items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:pl-12 w-full order-2 md:order-1 mt-2 md:mt-0">
                     <h4 className="font-serif text-xl md:text-2xl text-stone-800">
-                      Gran Banquete
+                      Banquete
                     </h4>
                     <p className="text-stone-500 text-sm mt-1">
                       Gastronomía local con toque moderno
@@ -1156,38 +1139,63 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {accommodations.map((acc, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  onClick={() => setExpandedAcc(expandedAcc === index ? null : index)}
+                  className="cursor-pointer bg-white p-5 md:p-6 rounded-2xl shadow-sm border border-stone-100 hover:shadow-md hover:border-amber-200 transition-all duration-300 flex flex-col group"
                 >
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-start mb-3">
                     <span className="bg-amber-50 text-amber-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                       {acc.tag}
                     </span>
-                    <Bed size={20} className="text-stone-300" />
+                    <Bed size={18} className="text-stone-300 group-hover:text-amber-400 transition-colors" />
                   </div>
-                  <h3 className="text-xl font-serif text-stone-900 mb-2">
+                  <h3 className="text-xl font-serif text-stone-900 mb-1">
                     {acc.name}
                   </h3>
-                  <p className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">
+                  <p className="text-[10px] font-bold text-stone-400 uppercase tracking-widest">
                     {acc.type}
                   </p>
-                  <p className="text-stone-600 text-sm mb-6 flex-grow">
-                    {acc.desc}
-                  </p>
 
-                  <div className="pt-6 border-t border-stone-100 space-y-3">
-                    <div className="flex items-center gap-3 text-sm text-stone-500 hover:text-amber-700 transition">
-                      <Phone size={14} /> <span>{acc.contact}</span>
-                    </div>
-                    {acc.web && (
-                      <div className="flex items-center gap-3 text-sm text-stone-500 hover:text-amber-700 transition truncate">
-                        <Globe size={14} className="flex-shrink-0" />{' '}
-                        <span className="truncate">{acc.web}</span>
+                  {/* Expandable Content */}
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      expandedAcc === index
+                        ? 'grid-rows-[1fr] opacity-100 mt-4'
+                        : 'grid-rows-[0fr] opacity-0 mt-0'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pt-4 border-t border-stone-100 flex flex-col gap-4">
+                        <p className="text-stone-600 text-sm leading-relaxed">
+                          {acc.desc}
+                        </p>
+                        <div className="space-y-3">
+                          <div className="flex items-center gap-3 text-sm text-stone-500 hover:text-amber-700 transition">
+                            <Phone size={14} className="flex-shrink-0" /> <span>{acc.contact}</span>
+                          </div>
+                          {acc.web && (
+                            <div className="flex items-center gap-3 text-sm text-stone-500 hover:text-amber-700 transition truncate">
+                              <Globe size={14} className="flex-shrink-0" />{' '}
+                              <span className="truncate">{acc.web}</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
+                    </div>
+                  </div>
+
+                  {/* Toggle Button/Indicator */}
+                  <div className="mt-4 pt-3 border-t border-stone-50 flex items-center justify-center gap-2 text-[10px] uppercase tracking-widest text-stone-400 group-hover:text-amber-600 transition-colors">
+                    {expandedAcc === index ? 'Cerrar detalle' : 'Ver detalle'}
+                    <ArrowRight
+                      size={12}
+                      className={`transform transition-transform duration-300 ${
+                        expandedAcc === index ? '-rotate-90' : 'rotate-90'
+                      }`}
+                    />
                   </div>
                 </div>
               ))}
