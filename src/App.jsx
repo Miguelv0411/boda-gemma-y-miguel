@@ -307,24 +307,24 @@ const Countdown = ({ targetDate }) => {
   }, [targetDate]);
 
   const TimeBox = ({ val, label }) => (
-    <div className="flex flex-col items-center mx-2 md:mx-6">
+    <div className="flex flex-col items-center mx-4 md:mx-10">
       <div className="relative">
-        <span className="text-3xl sm:text-4xl md:text-7xl font-light font-serif text-white tabular-nums tracking-tighter">
+        <span className="text-4xl sm:text-5xl md:text-7xl font-light font-serif text-stone-900 tabular-nums tracking-tighter">
           {val.toString().padStart(2, '0')}
         </span>
       </div>
-      <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/80 mt-2 font-medium">
+      <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-stone-400 mt-2 font-bold">
         {label}
       </span>
     </div>
   );
 
   return (
-    <div className="flex justify-center items-center py-6 md:py-8 border-t border-b border-white/20 backdrop-blur-sm bg-white/5 rounded-full px-4 md:px-12 mt-8 md:mt-12 scale-90 md:scale-100 origin-top">
+    <div className="flex justify-center items-center py-10 md:py-16 px-4 md:px-12 w-full">
       <TimeBox val={timeLeft.days} label="Días" />
-      <div className="h-6 md:h-8 w-px bg-white/20"></div>
+      <div className="h-12 md:h-20 w-px bg-stone-200"></div>
       <TimeBox val={timeLeft.hours} label="Horas" />
-      <div className="h-6 md:h-8 w-px bg-white/20 hidden sm:block"></div>
+      <div className="h-12 md:h-20 w-px bg-stone-200 hidden sm:block"></div>
       <TimeBox val={timeLeft.minutes} label="Min" />
     </div>
   );
@@ -659,9 +659,9 @@ export default function App() {
 
   // --- VISTA PÚBLICA (LANDING) ---
   return (
-    <div className="bg-[#FAF9F6] text-stone-800 font-sans selection:bg-amber-200 selection:text-amber-900 overflow-x-hidden">
+    <div className="bg-[#FAF9F6] text-stone-800 font-sans selection:bg-amber-200 selection:text-amber-900 overflow-x-hidden pt-[60px] md:pt-[64px]">
       {/* Navbar Premium */}
-      <nav className="fixed w-full z-40 transition-all duration-300 bg-white/70 backdrop-blur-md border-b border-white/20 shadow-sm">
+      <nav className="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <span className="font-serif text-xl md:text-2xl font-bold tracking-tighter text-stone-900 z-50 relative">
             G&M
@@ -783,37 +783,37 @@ export default function App() {
       {/* Hero Section con Parallax */}
       <section
         id="inicio"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-[calc(100vh-60px)] md:h-[calc(100vh-64px)] flex items-center justify-center overflow-hidden bg-stone-950"
       >
+        {/* Fondo borroso para rellenar toda la pantalla */}
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
-            transform: `translateY(${offsetY * 0.5}px) scale(1.1)`,
-            filter: 'brightness(0.85)',
+            backgroundImage: `url('https://i.postimg.cc/XNw9G4mr/Gemini_Generated_Image_5rucma5rucma5ruc.png')`,
+            filter: 'blur(30px) brightness(0.6)',
+            transform: 'scale(1.1)', // Para evitar los bordes claros del desenfoque
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 z-10" />
 
-        <div className="relative z-20 text-center text-white px-4 fade-in-up">
-          <p className="uppercase tracking-[0.5em] text-[10px] md:text-sm mb-6 opacity-90 font-medium">
-            ¡Nos casamos!
-          </p>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[9rem] leading-none mb-6 font-serif tracking-tight drop-shadow-2xl">
-            Gemma
-            <span className="font-light italic text-amber-200/80 mx-2 md:mx-4">
-              &
-            </span>
-            Miguel
-          </h1>
-          <div className="flex items-center justify-center gap-2 md:gap-4 font-serif text-xl md:text-3xl italic opacity-90 mb-8 md:mb-12">
-            <span>24</span>
-            <span className="w-1.5 h-1.5 bg-amber-200 rounded-full"></span>
-            <span>Abril</span>
-            <span className="w-1.5 h-1.5 bg-amber-200 rounded-full"></span>
-            <span>2027</span>
-          </div>
-          <Countdown targetDate={new Date('2027-04-24T11:00:00').getTime()} />
+        {/* Imagen principal nítida y sin recortes */}
+        <div
+          className="absolute inset-0 z-10 bg-contain bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://i.postimg.cc/XNw9G4mr/Gemini_Generated_Image_5rucma5rucma5ruc.png')`,
+            filter: 'brightness(0.95)',
+          }}
+        />
+
+        {/* Gradiente sutil para integrar todo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 z-20 pointer-events-none" />
+      </section>
+
+      {/* Countdown Section */}
+      <section className="bg-transparent relative z-20 border-b border-stone-200">
+        <div className="max-w-5xl mx-auto">
+          <FadeInSection>
+            <Countdown targetDate={new Date('2027-04-24T11:00:00').getTime()} />
+          </FadeInSection>
         </div>
       </section>
 
