@@ -39,10 +39,9 @@ import {
 } from 'lucide-react';
 
 // --- CONFIGURACIÓN GOOGLE SHEETS ---
-const GOOGLE_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbzEeXDkjVIc1ibIUGxKDc4KLpquNZu2RtcfOo50ku29_gvn4xswWoHErTkXaLZvLWp6/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzEeXDkjVIc1ibIUGxKDc4KLpquNZu2RtcfOo50ku29_gvn4xswWoHErTkXaLZvLWp6/exec';
 
-// --- UTILS & HOOKS ---
+// --- UTILS y HOOKS ---
 
 const useScrollAnimation = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,10 +81,7 @@ const FadeInSection = ({ children, className = '', delay = '0' }) => {
 // Efecto de pájaros volando
 const FlyingBirds = () => {
   return (
-    <div
-      className="absolute inset-0 pointer-events-none overflow-hidden"
-      style={{ zIndex: 14 }}
-    >
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 14 }}>
       <style>{`
         @keyframes flyAcross {
           0% { left: -10%; top: 30%; transform: scale(0.8) rotate(10deg); opacity: 0; }
@@ -110,19 +106,11 @@ const FlyingBirds = () => {
       <div className="anim-bird-container">
         <div className="anim-bird-flap flex items-start gap-3 text-[#2A3327]">
           {/* Pájaro 1 (Principal) */}
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-12 h-12 opacity-80 drop-shadow-md"
-          >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-12 h-12 opacity-80 drop-shadow-md">
             <path d="M2 12C5.5 9 9 9 12 12C15 9 18.5 9 22 12C19.5 9 15 9 12 10.5C9 9 4.5 9 2 12Z" />
           </svg>
           {/* Pájaro 2 (Acompañante, más pequeño y un poco atrás) */}
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-8 h-8 opacity-60 mt-6 -ml-2 drop-shadow-md"
-          >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-60 mt-6 -ml-2 drop-shadow-md">
             <path d="M2 12C5.5 9 9 9 12 12C15 9 18.5 9 22 12C19.5 9 15 9 12 10.5C9 9 4.5 9 2 12Z" />
           </svg>
         </div>
@@ -133,19 +121,9 @@ const FlyingBirds = () => {
 
 // Componente de los gatos paseando
 const CatSVG = ({ className }) => (
-  <svg
-    viewBox="0 0 100 60"
-    className={`overflow-visible ${className}`}
-    fill="currentColor"
-  >
+  <svg viewBox="0 0 100 60" className={`overflow-visible ${className}`} fill="currentColor">
     {/* Cola (levantada y sutilmente curvada) */}
-    <path
-      d="M 20 30 Q 8 30 10 10 Q 15 5 20 15"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-    />
+    <path d="M 20 30 Q 8 30 10 10 Q 15 5 20 15" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
     {/* Cuerpo */}
     <rect x="18" y="25" width="40" height="20" rx="10" />
     {/* Cabeza */}
@@ -154,51 +132,16 @@ const CatSVG = ({ className }) => (
     <polygon points="53,12 56,2 62,9" />
     <polygon points="62,9 68,2 73,12" />
     {/* Patas animadas */}
-    <rect
-      x="22"
-      y="40"
-      width="4"
-      height="14"
-      rx="2"
-      className="cat-leg-1"
-      style={{ transformOrigin: '24px 40px' }}
-    />
-    <rect
-      x="32"
-      y="40"
-      width="4"
-      height="14"
-      rx="2"
-      className="cat-leg-2"
-      style={{ transformOrigin: '34px 40px' }}
-    />
-    <rect
-      x="44"
-      y="40"
-      width="4"
-      height="14"
-      rx="2"
-      className="cat-leg-3"
-      style={{ transformOrigin: '46px 40px' }}
-    />
-    <rect
-      x="54"
-      y="40"
-      width="4"
-      height="14"
-      rx="2"
-      className="cat-leg-4"
-      style={{ transformOrigin: '56px 40px' }}
-    />
+    <rect x="22" y="40" width="4" height="14" rx="2" className="cat-leg-1" style={{ transformOrigin: '24px 40px' }} />
+    <rect x="32" y="40" width="4" height="14" rx="2" className="cat-leg-2" style={{ transformOrigin: '34px 40px' }} />
+    <rect x="44" y="40" width="4" height="14" rx="2" className="cat-leg-3" style={{ transformOrigin: '46px 40px' }} />
+    <rect x="54" y="40" width="4" height="14" rx="2" className="cat-leg-4" style={{ transformOrigin: '56px 40px' }} />
   </svg>
 );
 
 const WalkingCats = () => {
   return (
-    <div
-      className="w-full relative h-12 md:h-16 overflow-hidden bg-transparent opacity-80"
-      style={{ zIndex: 15 }}
-    >
+    <div className="w-full relative h-12 md:h-16 overflow-hidden bg-transparent opacity-80" style={{ zIndex: 15 }}>
       <style>{`
         @keyframes walkAcrossScreen {
           0% { transform: translateX(-15vw); }
@@ -254,54 +197,46 @@ const WalkingCats = () => {
 
 // Efecto de hojas cayendo
 const FallingLeaves = () => {
-  const leaves = useMemo(
-    () =>
-      Array.from({ length: 5 }).map((_, i) => {
-        // Aumentamos los retrasos iniciales para que no haya hojas al iniciar. La primera cae a los 2.5s.
-        const delays = [2.5, 4.0, 5.2, 7.5, 8.8];
-        return {
-          id: i,
-          left: `${10 + i * 18}%`, // Distribuidas a lo ancho de la pantalla
-          animationDelay: `${delays[i]}s`,
-          animationDuration: `${16 + Math.random() * 6}s`, // Caída MUY MUY lenta (16 a 22 segundos) para dar paz
-          swayDuration: `${5 + Math.random() * 3}s`, // Balanceo más lento y sereno
-          size: `${40 + Math.random() * 15}px`, // Hojas un poco más grandes para apreciar la forma
-          rotation: -40 + Math.random() * 80,
-        };
-      }),
-    []
-  );
+  const leaves = useMemo(() => [
+    // 1. Cae desde arriba hacia abajo
+    { id: 0, startLeft: '20%', startTop: '-20%', endLeft: '30%', endTop: '120%', delay: 2.5, dur: 18, sway: 6, size: 45, rot: -20 },
+    // 2. Entra desde el lateral izquierdo superior hacia el centro-derecha abajo
+    { id: 1, startLeft: '-10%', startTop: '15%', endLeft: '40%', endTop: '120%', delay: 4.0, dur: 20, sway: 5, size: 52, rot: 15 },
+    // 3. Cae desde arriba a la derecha hacia el centro
+    { id: 2, startLeft: '80%', startTop: '-20%', endLeft: '60%', endTop: '120%', delay: 5.2, dur: 17, sway: 7, size: 42, rot: 45 },
+    // 4. Entra desde el lateral derecho superior hacia la izquierda abajo
+    { id: 3, startLeft: '110%', startTop: '25%', endLeft: '50%', endTop: '120%', delay: 7.5, dur: 22, sway: 6, size: 50, rot: -60 },
+    // 5. Entra desde el lateral izquierdo medio hacia el centro abajo
+    { id: 4, startLeft: '-10%', startTop: '45%', endLeft: '60%', endTop: '120%', delay: 8.8, dur: 19, sway: 5.5, size: 48, rot: 30 }
+  ], []);
 
   return (
-    <div
-      className="absolute inset-0 pointer-events-none overflow-hidden"
-      style={{ zIndex: 15 }}
-    >
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 15 }}>
       <style>{`
-        @keyframes leafFall {
-          0% { top: -20%; opacity: 0; }
-          10% { opacity: 0; } /* Se mantienen invisibles hasta entrar del todo */
-          20% { opacity: 0.9; }
-          85% { opacity: 0.9; }
-          100% { top: 120%; opacity: 0; }
-        }
+        ${leaves.map(leaf => `
+          @keyframes leafFall${leaf.id} {
+            0% { top: ${leaf.startTop}; left: ${leaf.startLeft}; opacity: 0; }
+            10% { opacity: 0; }
+            20% { opacity: 0.9; }
+            85% { opacity: 0.9; }
+            100% { top: ${leaf.endTop}; left: ${leaf.endLeft}; opacity: 0; }
+          }
+        `).join('')}
         @keyframes leafSway {
-          0% { transform: translateX(-180px) rotate(-60deg); }
-          100% { transform: translateX(180px) rotate(60deg); }
+          0% { transform: translateX(-150px) rotate(-60deg); }
+          100% { transform: translateX(150px) rotate(60deg); }
         }
-        .anim-leaf {
+        .anim-leaf-base {
           position: absolute;
-          top: -20%;
           opacity: 0;
-          animation-name: leafFall;
-          animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1); /* Caída fluida y constante */
-          animation-iteration-count: 1; /* Solo caen al abrir la web */
-          animation-fill-mode: both; /* CLAVE: Asegura que sean invisibles antes de empezar la animación */
+          animation-timing-function: cubic-bezier(0.37, 0, 0.63, 1);
+          animation-iteration-count: 1;
+          animation-fill-mode: both;
         }
         .anim-leaf-inner {
           animation-name: leafSway;
           animation-timing-function: ease-in-out;
-          animation-iteration-count: infinite; /* Balanceo continuo mientras caen */
+          animation-iteration-count: infinite;
           animation-direction: alternate;
           transform-origin: center center;
         }
@@ -309,75 +244,29 @@ const FallingLeaves = () => {
       {leaves.map((leaf) => (
         <div
           key={leaf.id}
-          className="anim-leaf text-[#6B7264]" /* Color verde hoja natural */
+          className="anim-leaf-base text-[#6B7264]"
           style={{
-            left: leaf.left,
-            animationDelay: leaf.animationDelay,
-            animationDuration: leaf.animationDuration,
+            animationName: `leafFall${leaf.id}`,
+            animationDelay: `${leaf.delay}s`,
+            animationDuration: `${leaf.dur}s`,
           }}
         >
           <div
             className="anim-leaf-inner drop-shadow-md"
             style={{
-              animationDuration: leaf.swayDuration,
-              animationDelay: leaf.animationDelay,
+              animationDuration: `${leaf.sway}s`,
+              animationDelay: `${leaf.delay}s`,
             }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="transform"
-              style={{
-                width: leaf.size,
-                height: leaf.size,
-                transform: `rotate(${leaf.rotation}deg)`,
-              }}
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Forma de hoja alargada y realista, con nervios centrales sutiles */}
+            <svg viewBox="0 0 24 24" fill="currentColor" className="transform" style={{ width: `${leaf.size}px`, height: `${leaf.size}px`, transform: `rotate(${leaf.rot}deg)` }} xmlns="http://www.w3.org/2000/svg">
               <path d="M12 1C10 4 6 10 6 15C6 18 8.5 21 11.5 22L11.5 24L12.5 24L12.5 22C15.5 21 18 18 18 15C18 10 14 4 12 1Z" />
-              <path
-                d="M12 1C12 1 12 15 12 22"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 12C12 12 14 10 15 9"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 16C12 16 14 14 15 13"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 8C12 8 14 6 15 5"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 14C12 14 10 12 9 11"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 18C12 18 10 16 9 15"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
-              <path
-                d="M12 10C12 10 10 8 9 7"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="0.5"
-                fill="none"
-              />
+              <path d="M12 1C12 1 12 15 12 22" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 12C12 12 14 10 15 9" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 16C12 16 14 14 15 13" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 8C12 8 14 6 15 5" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 14C12 14 10 12 9 11" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 18C12 18 10 16 9 15" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
+              <path d="M12 10C12 10 10 8 9 7" stroke="rgba(255,255,255,0.2)" strokeWidth="0.5" fill="none" />
             </svg>
           </div>
         </div>
@@ -397,19 +286,11 @@ const accommodations = [
     tag: 'Sotosalbos',
   },
   {
-    name: 'Fuente Techada',
-    type: 'Hotel Finca',
-    desc: 'Exclusivo solo adultos (salvo alquiler completo). Max 14 pax.',
-    contact: '619 65 18 65',
-    web: 'hotelfincafuentetechada.com',
-    tag: 'Sotosalbos',
-  },
-  {
     name: 'Saltus Alvus',
     type: 'Casas Rurales',
     desc: 'Gran capacidad, perfecto para familias grandes. Max 18 pax.',
     contact: '639 89 12 20',
-    web: 'saltusalvuscasaruralsegovia.com',
+    web: 'www.saltusalvuscasaruralsegovia.com',
     tag: 'Sotosalbos',
   },
   {
@@ -444,14 +325,6 @@ const accommodations = [
     tag: 'Sotosalbos',
   },
   {
-    name: 'Fuente Plateada',
-    type: 'Posada & Restaurante',
-    desc: 'En Collado Hermoso, al lado de la finca. Circuito spa gratuito.',
-    contact: '618 97 89 74',
-    web: 'turismosotosalbos.com',
-    tag: 'Collado Hermoso',
-  },
-  {
     name: 'El Rancho de la Aldegüela',
     type: 'Hotel 4*',
     desc: "Opción clásica y confortable. 10% dto código 'MENCIASOTOSALBOS'.",
@@ -465,28 +338,6 @@ const accommodations = [
     desc: 'Sencillo y funcional, a solo 7km de la boda.',
     contact: '649 44 93 59',
     web: 'lasfuenteshotel.es',
-    tag: 'Torrecaballeros',
-  },
-  {
-    name: 'Hostal Burgos',
-    type: 'Hostal',
-    desc: 'Alojamiento práctico y muy cercano.',
-    contact: '921 40 12 18',
-    web: 'hostalburgos.com',
-    tag: 'Torrecaballeros',
-  },
-  {
-    name: 'La Casa de la Era',
-    type: 'Casa Rural',
-    desc: 'Tranquilidad a pocos kilómetros.',
-    contact: '667 02 49 91',
-    tag: 'Torrecaballeros',
-  },
-  {
-    name: 'Casa de San Medel',
-    type: 'Apartamentos Rurales',
-    desc: 'Flexibilidad y espacio para familias.',
-    contact: '685 72 95 98',
     tag: 'Torrecaballeros',
   },
   {
@@ -504,7 +355,7 @@ const restaurants = [
     name: 'La Chimenea',
     location: 'Sotosalbos',
     desc: 'El sitio idóneo para el vermú o una comida sentada. César, su dueño, es puro encanto.',
-    specialty: 'Vermú & Tradición',
+    specialty: 'Vermú y Tradición',
     contact: '650 94 99 61',
   },
   {
@@ -517,15 +368,9 @@ const restaurants = [
   {
     name: 'Paz&Pan',
     location: 'Sotosalbos',
-    desc: 'Ideal para desayunos, meriendas o comprar pan artesano. Un rincón con encanto.',
-    specialty: 'Panadería & Café',
-    contact: 'Sotosalbos',
-    icon: (
-      <Coffee
-        size={20}
-        className="text-[#C29B9B] group-hover:text-[#899A8B] transition-colors"
-      />
-    ),
+    desc: 'Un refugio acogedor donde el Mediterráneo y el Líbano se fusionan.',
+    specialty: 'Fusión Libanesa',
+    contact: '921 12 89 42',
   },
   {
     name: 'El Rancho de la Aldegüela',
@@ -535,10 +380,17 @@ const restaurants = [
     contact: '921 40 10 60',
   },
   {
+    name: 'El Huerto de San Roque',
+    location: 'Torrecaballeros',
+    desc: 'Un rincón con mucho encanto para disfrutar de la buena mesa en un entorno idílico.',
+    specialty: 'Tradición y Calidad',
+    contact: '641 03 26 00',
+  },
+  {
     name: 'Ta-Berna Horno de Asar',
     location: 'Collado Hermoso',
     desc: 'Regentado por Berna y Nieves. Fantástico para un picoteo pre o post boda.',
-    specialty: 'Picoteo & Calidad',
+    specialty: 'Picoteo y Calidad',
     contact: '921 40 30 61',
   },
 ];
@@ -554,21 +406,34 @@ const Countdown = ({ targetDate }) => {
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const calculateTime = () => {
       const now = new Date().getTime();
       const difference = targetDate - now;
-      if (difference <= 0) clearInterval(timer);
-      else {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor(
-            (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-          ),
-          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((difference % (1000 * 60)) / 1000),
-        });
+      
+      if (difference <= 0) {
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      }
+      
+      // Cálculo exacto forzando el redondeo estricto hacia abajo (floor)
+      return {
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60),
+      };
+    };
+
+    // Actualizar el estado inmediatamente para evitar 1 segundo de retraso o parpadeo inicial
+    setTimeLeft(calculateTime());
+
+    const timer = setInterval(() => {
+      const newTime = calculateTime();
+      setTimeLeft(newTime);
+      if (newTime.days === 0 && newTime.hours === 0 && newTime.minutes === 0 && newTime.seconds === 0) {
+        clearInterval(timer);
       }
     }, 1000);
+    
     return () => clearInterval(timer);
   }, [targetDate]);
 
@@ -617,6 +482,12 @@ export default function App() {
     link.href =
       'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>';
     document.head.appendChild(link);
+
+    // Evita que los navegadores móviles (iOS/Android) conviertan los números de teléfono en enlaces clicables por defecto
+    const meta = document.createElement('meta');
+    meta.name = 'format-detection';
+    meta.content = 'telephone=no';
+    document.head.appendChild(meta);
   }, []);
 
   const fetchSheetData = async () => {
@@ -663,7 +534,7 @@ export default function App() {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         body: data,
-        mode: 'no-cors',
+        mode: 'no-cors', 
       });
 
       setFormStatus('success');
@@ -689,10 +560,7 @@ export default function App() {
         <div className="bg-white/80 backdrop-blur-md border-b border-[#EAE6DF] px-4 md:px-6 py-4 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-2 md:gap-3">
             <span className="font-serif font-bold text-lg md:text-xl tracking-tight text-[#899A8B]">
-              G&M Panel
-            </span>
-            <span className="px-2 py-0.5 bg-[#899A8B]/10 text-[#3E4A3D] text-[10px] uppercase font-bold tracking-widest rounded-full hidden sm:inline-block">
-              Google Sheets
+              Panel de Gemma y Miguel
             </span>
           </div>
           <button
@@ -710,9 +578,7 @@ export default function App() {
               <div className="w-16 h-16 bg-[#F7F5F0] rounded-full flex items-center justify-center mx-auto mb-6">
                 <Lock className="text-[#899A8B]" size={24} />
               </div>
-              <h2 className="text-2xl font-serif mb-2 text-[#3E4A3D]">
-                Acceso Novios
-              </h2>
+              <h2 className="text-2xl font-serif mb-2 text-[#3E4A3D]">Acceso Novios</h2>
               <p className="text-[#899A8B] text-sm mb-6">
                 Introduce la contraseña
               </p>
@@ -911,58 +777,30 @@ export default function App() {
   // --- VISTA PÚBLICA (LANDING) ---
   return (
     <div className="bg-[#F7F5F0] text-[#4A4F46] font-sans selection:bg-[#EAE6DF] selection:text-[#3E4A3D] overflow-x-hidden pt-[60px] md:pt-[64px] relative">
+      
       {/* Navbar Floral/Premium */}
       <nav className="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-[#F7F5F0]/90 backdrop-blur-md border-b border-[#EAE6DF] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
           <span className="font-serif text-xl md:text-2xl font-bold tracking-tighter text-[#3E4A3D] z-50 relative">
-            Gemma & Miguel
+            Gemma y Miguel
           </span>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex space-x-10 text-xs uppercase tracking-[0.2em] font-medium items-center text-[#899A8B]">
-            <a
-              href="#historia"
-              className="hover:text-[#3E4A3D] transition-colors"
-            >
-              Historia
-            </a>
-            <a
-              href="#detalles"
-              className="hover:text-[#3E4A3D] transition-colors"
-            >
-              Detalles
-            </a>
-            <a
-              href="#itinerario"
-              className="hover:text-[#3E4A3D] transition-colors"
-            >
-              Itinerario
-            </a>
-            <a
-              href="#alojamiento"
-              className="hover:text-[#3E4A3D] transition-colors"
-            >
-              Guía
-            </a>
-            <a
-              href="#rsvp"
-              className="bg-[#3E4A3D] text-[#F7F5F0] px-6 py-2.5 rounded-full hover:bg-[#899A8B] transition-all hover:shadow-lg transform hover:-translate-y-0.5"
-            >
+            <a href="#historia" className="hover:text-[#3E4A3D] transition-colors">Historia</a>
+            <a href="#detalles" className="hover:text-[#3E4A3D] transition-colors">Detalles</a>
+            <a href="#itinerario" className="hover:text-[#3E4A3D] transition-colors">Itinerario</a>
+            <a href="#alojamiento" className="hover:text-[#3E4A3D] transition-colors">Guía</a>
+            <a href="#rsvp" className="bg-[#3E4A3D] text-[#F7F5F0] px-6 py-2.5 rounded-full hover:bg-[#899A8B] transition-all hover:shadow-lg transform hover:-translate-y-0.5">
               Confirmar
             </a>
-            <button
-              onClick={() => setView('admin')}
-              className="p-2 hover:bg-[#EAE6DF] rounded-full transition text-[#B3ABA2]"
-            >
+            <button onClick={() => setView('admin')} className="p-2 hover:bg-[#EAE6DF] rounded-full transition text-[#B3ABA2]">
               <Lock size={14} />
             </button>
           </div>
 
           {/* Mobile Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden z-50 p-2 relative text-[#3E4A3D]"
-          >
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="lg:hidden z-50 p-2 relative text-[#3E4A3D]">
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -971,61 +809,17 @@ export default function App() {
       {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 bg-[#F7F5F0]/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 transform ${
-          mobileMenuOpen
-            ? 'opacity-100 translate-x-0'
-            : 'opacity-0 translate-x-full pointer-events-none'
+          mobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
         }`}
       >
         <div className="flex flex-col space-y-8 text-center font-serif text-3xl text-[#3E4A3D]">
-          <a
-            href="#inicio"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-[#C29B9B] transition"
-          >
-            Inicio
-          </a>
-          <a
-            href="#historia"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-[#C29B9B] transition"
-          >
-            Nuestra Historia
-          </a>
-          <a
-            href="#detalles"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-[#C29B9B] transition"
-          >
-            Detalles
-          </a>
-          <a
-            href="#itinerario"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-[#C29B9B] transition"
-          >
-            Itinerario
-          </a>
-          <a
-            href="#alojamiento"
-            onClick={() => setMobileMenuOpen(false)}
-            className="hover:text-[#C29B9B] transition"
-          >
-            Guía Local
-          </a>
-          <a
-            href="#rsvp"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-[#899A8B] italic"
-          >
-            Confirmar Asistencia
-          </a>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setView('admin');
-            }}
-            className="text-sm font-sans uppercase tracking-widest text-[#B3ABA2] mt-8"
-          >
+          <a href="#inicio" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C29B9B] transition">Inicio</a>
+          <a href="#historia" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C29B9B] transition">Nuestra Historia</a>
+          <a href="#detalles" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C29B9B] transition">Detalles</a>
+          <a href="#itinerario" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C29B9B] transition">Itinerario</a>
+          <a href="#alojamiento" onClick={() => setMobileMenuOpen(false)} className="hover:text-[#C29B9B] transition">Guía Local</a>
+          <a href="#rsvp" onClick={() => setMobileMenuOpen(false)} className="text-[#899A8B] italic">Confirmar Asistencia</a>
+          <button onClick={() => { setMobileMenuOpen(false); setView('admin'); }} className="text-sm font-sans uppercase tracking-widest text-[#B3ABA2] mt-8">
             Acceso Novios
           </button>
         </div>
@@ -1058,11 +852,11 @@ export default function App() {
 
         {/* Efecto de hojas cayendo */}
         <FallingLeaves />
-
+        
         {/* Gradientes laterales para fundir los bordes */}
         <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#F7F5F0] to-transparent z-20 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#F7F5F0] to-transparent z-20 pointer-events-none" />
-
+        
         {/* Gradiente inferior muy corto para no tapar la fecha ni los nombres */}
         <div className="absolute bottom-0 left-0 w-full h-8 md:h-12 bg-gradient-to-t from-[#F7F5F0] to-transparent z-20 pointer-events-none" />
       </section>
@@ -1071,7 +865,8 @@ export default function App() {
       <section className="bg-transparent relative z-20 pt-8 md:pt-16">
         <div className="max-w-5xl mx-auto">
           <FadeInSection>
-            <Countdown targetDate={new Date('2027-04-24T11:00:00').getTime()} />
+            {/* Fijado a las 00:00 exactas de la fecha de la boda, con la zona horaria estricta de Madrid en horario de verano (+02:00) */}
+            <Countdown targetDate={new Date('2027-04-24T00:00:00+02:00').getTime()} />
           </FadeInSection>
         </div>
       </section>
@@ -1083,20 +878,14 @@ export default function App() {
       >
         <FadeInSection>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 md:h-16 bg-gradient-to-b from-transparent to-[#899A8B]/30"></div>
-          <Sparkles
-            className="mx-auto text-[#C29B9B] mb-6 md:mb-8 opacity-80"
-            size={32}
-            strokeWidth={1}
-          />
+          <Sparkles className="mx-auto text-[#C29B9B] mb-6 md:mb-8 opacity-80" size={32} strokeWidth={1} />
           <h2 className="text-3xl md:text-6xl mb-6 md:mb-10 font-serif text-[#3E4A3D]">
             Nuestra Historia
           </h2>
           <p className="text-base md:text-2xl leading-relaxed text-[#6B7264] font-light max-w-3xl mx-auto">
-            "Todo comenzó como un encuentro inesperado y se convirtió en el
-            viaje de nuestras vidas. Sotosalbos, con sus calles de piedra y
-            atardeceres dorados, será el testigo de nuestro 'sí, quiero'.
-            Formáis parte de nuestra historia y queremos que también los seáis
-            de este día."
+            "Todo comenzó como un encuentro inesperado y se convirtió en el viaje de
+            nuestras vidas. Sotosalbos, con sus calles de piedra y atardeceres
+            dorados, será el testigo de nuestro 'sí, quiero'. Formáis parte de nuestra historia y queremos que también los seáis de este día."
           </p>
         </FadeInSection>
       </section>
@@ -1112,10 +901,7 @@ export default function App() {
             <div className="group relative bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 border border-[#EAE6DF] hover:border-[#899A8B] hover:shadow-2xl hover:shadow-[#899A8B]/5">
               <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-10">
                 <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center bg-[#F7F5F0] rounded-2xl shadow-sm border border-[#EAE6DF] group-hover:scale-110 group-hover:border-[#C29B9B] transition-all duration-500">
-                  <Church
-                    className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors"
-                    size={24}
-                  />
+                  <Church className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors" size={24} />
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-serif text-[#3E4A3D] leading-none mb-1 md:mb-2">
@@ -1133,9 +919,7 @@ export default function App() {
                     <Clock className="text-[#899A8B]" size={16} />
                   </div>
                   <div>
-                    <p className="font-bold text-[#3E4A3D] text-lg">
-                      11:00 Horas
-                    </p>
+                    <p className="font-bold text-[#3E4A3D] text-lg">11:00 Horas</p>
                     <p className="text-sm font-light">Se ruega puntualidad</p>
                   </div>
                 </div>
@@ -1144,12 +928,8 @@ export default function App() {
                     <MapPin className="text-[#899A8B]" size={16} />
                   </div>
                   <div>
-                    <p className="font-bold text-[#3E4A3D] text-lg">
-                      Iglesia de San Miguel
-                    </p>
-                    <p className="text-sm font-light">
-                      C. de la Iglesia, 4, Sotosalbos
-                    </p>
+                    <p className="font-bold text-[#3E4A3D] text-lg">Iglesia de San Miguel</p>
+                    <p className="text-sm font-light">C. de la Iglesia, 4, Sotosalbos</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 md:gap-5 group/item">
@@ -1158,9 +938,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="font-bold text-[#3E4A3D] text-lg">Parking</p>
-                    <p className="text-sm font-light">
-                      Zona de aparcamiento cercana
-                    </p>
+                    <p className="text-sm font-light">Zona de aparcamiento cercana</p>
                   </div>
                 </div>
               </div>
@@ -1170,11 +948,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-8 md:mt-10 ml-2 text-xs font-bold uppercase tracking-[0.2em] text-[#899A8B] hover:text-[#3E4A3D] transition-colors group/link"
               >
-                CÓMO LLEGAR{' '}
-                <ArrowRight
-                  size={14}
-                  className="group-hover/link:translate-x-1 transition-transform"
-                />
+                CÓMO LLEGAR <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
 
@@ -1182,10 +956,7 @@ export default function App() {
             <div className="group relative bg-white/60 backdrop-blur-sm p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 border border-[#EAE6DF] hover:border-[#899A8B] hover:shadow-2xl hover:shadow-[#899A8B]/5">
               <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-10">
                 <div className="w-12 h-12 md:w-16 md:h-16 flex-shrink-0 flex items-center justify-center bg-[#F7F5F0] rounded-2xl shadow-sm border border-[#EAE6DF] group-hover:scale-110 group-hover:border-[#C29B9B] transition-all duration-500">
-                  <Utensils
-                    className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors"
-                    size={24}
-                  />
+                  <Utensils className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors" size={24} />
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-serif text-[#3E4A3D] leading-none mb-1 md:mb-2">
@@ -1203,12 +974,8 @@ export default function App() {
                     <Clock className="text-[#899A8B]" size={16} />
                   </div>
                   <div>
-                    <p className="font-bold text-[#3E4A3D] text-lg">
-                      13:00 Horas
-                    </p>
-                    <p className="text-sm font-light">
-                      Hasta que el cuerpo aguante
-                    </p>
+                    <p className="font-bold text-[#3E4A3D] text-lg">13:00 Horas</p>
+                    <p className="text-sm font-light">Hasta que el cuerpo aguante</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 md:gap-5 group/item">
@@ -1216,12 +983,8 @@ export default function App() {
                     <MapPin className="text-[#899A8B]" size={16} />
                   </div>
                   <div>
-                    <p className="font-bold text-[#3E4A3D] text-lg">
-                      Mencía de Sotosalbos
-                    </p>
-                    <p className="text-sm font-light">
-                      Ctra. Segovia a Soria, km 172
-                    </p>
+                    <p className="font-bold text-[#3E4A3D] text-lg">Mencía de Sotosalbos</p>
+                    <p className="text-sm font-light">Ctra. Segovia a Soria, km 172</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 md:gap-5 group/item">
@@ -1230,9 +993,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="font-bold text-[#3E4A3D] text-lg">Parking</p>
-                    <p className="text-sm font-light">
-                      Parking privado en la finca
-                    </p>
+                    <p className="text-sm font-light">Parking privado en la finca</p>
                   </div>
                 </div>
               </div>
@@ -1242,11 +1003,7 @@ export default function App() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-8 md:mt-10 ml-2 text-xs font-bold uppercase tracking-[0.2em] text-[#899A8B] hover:text-[#3E4A3D] transition-colors group/link"
               >
-                CÓMO LLEGAR{' '}
-                <ArrowRight
-                  size={14}
-                  className="group-hover/link:translate-x-1 transition-transform"
-                />
+                CÓMO LLEGAR <ArrowRight size={14} className="group-hover/link:translate-x-1 transition-transform" />
               </a>
             </div>
           </FadeInSection>
@@ -1254,118 +1011,82 @@ export default function App() {
       </section>
 
       {/* Itinerario Section */}
-      <section
-        id="itinerario"
-        className="py-16 md:py-20 relative overflow-hidden"
-      >
+      <section id="itinerario" className="py-16 md:py-20 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <FadeInSection>
             <div className="text-center mb-12 md:mb-16">
-              <span className="text-[#C29B9B] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
-                Timeline
-              </span>
-              <h2 className="text-3xl md:text-5xl font-serif text-[#3E4A3D] mb-6">
-                El Gran Día
-              </h2>
+              <span className="text-[#C29B9B] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Timeline</span>
+              <h2 className="text-3xl md:text-5xl font-serif text-[#3E4A3D] mb-6">El Gran Día</h2>
               <div className="w-16 md:w-24 h-px bg-[#EAE6DF] mx-auto"></div>
             </div>
 
             <div className="relative">
               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-[#EAE6DF] transform md:-translate-x-1/2"></div>
               <div className="space-y-12">
+                
                 {/* 10:30 */}
                 <div className="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:text-right md:pr-12 w-full order-2 md:order-1 mt-2 md:mt-0">
-                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">
-                      Llegada de Invitados
-                    </h4>
-                    <p className="text-[#8B9185] text-sm mt-1">
-                      Bienvenida en la Iglesia de San Miguel
-                    </p>
+                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">Llegada de Invitados</h4>
+                    <p className="text-[#8B9185] text-sm mt-1">Bienvenida en la Iglesia de San Miguel</p>
                   </div>
                   <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#F7F5F0] border-4 border-[#C29B9B] rounded-full transform -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300 mt-1 md:mt-0"></div>
                   <div className="md:w-5/12 md:pl-12 w-full text-left order-1 md:order-3">
-                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#C29B9B] shadow-sm">
-                      10:30
-                    </span>
+                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#C29B9B] shadow-sm">10:30</span>
                   </div>
                 </div>
 
                 {/* 11:00 */}
                 <div className="relative flex flex-col md:flex-row-reverse items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:pl-12 w-full order-2 md:order-1 mt-2 md:mt-0">
-                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">
-                      Ceremonia
-                    </h4>
-                    <p className="text-[#8B9185] text-sm mt-1">
-                      El "Sí, quiero" más esperado
-                    </p>
+                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">Ceremonia</h4>
+                    <p className="text-[#8B9185] text-sm mt-1">El "Sí, quiero" más esperado</p>
                   </div>
                   <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-[#F7F5F0] border-4 border-[#899A8B] rounded-full transform -translate-x-1/2 z-10 group-hover:scale-125 transition-transform duration-300 group-hover:border-[#3E4A3D] mt-1 md:mt-0"></div>
                   <div className="md:w-5/12 md:pr-12 w-full text-left md:text-right order-1 md:order-3">
-                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">
-                      11:00
-                    </span>
+                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">11:00</span>
                   </div>
                 </div>
 
                 {/* 13:00 */}
                 <div className="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:text-right md:pr-12 w-full order-2 md:order-1 mt-2 md:mt-0">
-                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">
-                      Cóctel de Bienvenida
-                    </h4>
-                    <p className="text-[#8B9185] text-sm mt-1">
-                      Música en vivo en los jardines
-                    </p>
+                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">Cóctel de Bienvenida</h4>
+                    <p className="text-[#8B9185] text-sm mt-1">Música en vivo en los jardines</p>
                   </div>
                   <div className="absolute left-4 md:left-1/2 w-8 h-8 md:w-10 md:h-10 bg-white border border-[#EAE6DF] rounded-full flex items-center justify-center transform -translate-x-1/2 z-10 shadow-sm group-hover:scale-110 transition-transform mt-0 md:mt-0">
                     <Wine size={14} className="text-[#C29B9B]" />
                   </div>
                   <div className="md:w-5/12 md:pl-12 w-full text-left order-1 md:order-3">
-                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">
-                      13:00
-                    </span>
+                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">13:00</span>
                   </div>
                 </div>
 
                 {/* 15:00 */}
                 <div className="relative flex flex-col md:flex-row-reverse items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:pl-12 w-full order-2 md:order-1 mt-2 md:mt-0">
-                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">
-                      Banquete
-                    </h4>
-                    <p className="text-[#8B9185] text-sm mt-1">
-                      Gastronomía local con toque moderno
-                    </p>
+                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">Banquete</h4>
+                    <p className="text-[#8B9185] text-sm mt-1">Gastronomía local con toque moderno</p>
                   </div>
                   <div className="absolute left-4 md:left-1/2 w-8 h-8 md:w-10 md:h-10 bg-white border border-[#EAE6DF] rounded-full flex items-center justify-center transform -translate-x-1/2 z-10 shadow-sm group-hover:scale-110 transition-transform mt-0 md:mt-0">
                     <Utensils size={14} className="text-[#C29B9B]" />
                   </div>
                   <div className="md:w-5/12 md:pr-12 w-full text-left md:text-right order-1 md:order-3">
-                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">
-                      15:00
-                    </span>
+                    <span className="inline-block px-3 py-1 bg-white border border-[#EAE6DF] rounded-full text-[10px] md:text-xs font-bold tracking-widest text-[#899A8B] shadow-sm">15:00</span>
                   </div>
                 </div>
 
                 {/* 18:30 */}
                 <div className="relative flex flex-col md:flex-row items-start md:items-center md:justify-between group pl-12 md:pl-0">
                   <div className="md:w-5/12 text-left md:text-right md:pr-12 w-full order-2 md:order-1 mt-2 md:mt-0">
-                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">
-                      Fiesta & Barra Libre
-                    </h4>
-                    <p className="text-[#8B9185] text-sm mt-1">
-                      ¡Baile hasta que se ponga el sol!
-                    </p>
+                    <h4 className="font-serif text-xl md:text-2xl text-[#3E4A3D]">Fiesta y Barra Libre</h4>
+                    <p className="text-[#8B9185] text-sm mt-1">¡Baile hasta que se ponga el sol!</p>
                   </div>
                   <div className="absolute left-4 md:left-1/2 w-8 h-8 md:w-10 md:h-10 bg-[#3E4A3D] border border-[#3E4A3D] rounded-full flex items-center justify-center transform -translate-x-1/2 z-10 shadow-sm group-hover:scale-110 transition-transform mt-0 md:mt-0">
                     <Music size={14} className="text-[#F7F5F0]" />
                   </div>
                   <div className="md:w-5/12 md:pl-12 w-full text-left order-1 md:order-3">
-                    <span className="inline-block px-3 py-1 bg-[#3E4A3D] text-white rounded-full text-[10px] md:text-xs font-bold tracking-widest shadow-sm">
-                      18:30
-                    </span>
+                    <span className="inline-block px-3 py-1 bg-[#3E4A3D] text-white rounded-full text-[10px] md:text-xs font-bold tracking-widest shadow-sm">18:30</span>
                   </div>
                 </div>
               </div>
@@ -1395,19 +1116,14 @@ export default function App() {
               {accommodations.map((acc, index) => (
                 <div
                   key={index}
-                  onClick={() =>
-                    setExpandedAcc(expandedAcc === index ? null : index)
-                  }
+                  onClick={() => setExpandedAcc(expandedAcc === index ? null : index)}
                   className="cursor-pointer bg-white/80 backdrop-blur-sm p-5 md:p-6 rounded-2xl shadow-sm border border-[#EAE6DF] hover:shadow-md hover:border-[#899A8B] transition-all duration-300 flex flex-col group"
                 >
                   <div className="flex justify-between items-start mb-3">
                     <span className="bg-[#F7F5F0] text-[#3E4A3D] text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-[#EAE6DF]">
                       {acc.tag}
                     </span>
-                    <Bed
-                      size={18}
-                      className="text-[#B3ABA2] group-hover:text-[#899A8B] transition-colors"
-                    />
+                    <Bed size={18} className="text-[#B3ABA2] group-hover:text-[#899A8B] transition-colors" />
                   </div>
                   <h3 className="text-xl font-serif text-[#3E4A3D] mb-1">
                     {acc.name}
@@ -1429,15 +1145,20 @@ export default function App() {
                           {acc.desc}
                         </p>
                         <div className="space-y-3">
-                          <div className="flex items-center gap-3 text-sm text-[#899A8B] hover:text-[#3E4A3D] transition">
-                            <Phone size={14} className="flex-shrink-0" />{' '}
-                            <span>{acc.contact}</span>
+                          <div className="flex items-center gap-3 text-sm text-[#899A8B]">
+                            <Phone size={14} className="flex-shrink-0" /> <span>{acc.contact}</span>
                           </div>
                           {acc.web && (
-                            <div className="flex items-center gap-3 text-sm text-[#899A8B] hover:text-[#3E4A3D] transition truncate">
+                            <a 
+                              href={acc.web.startsWith('http') ? acc.web : `https://${acc.web}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex items-center gap-3 text-sm text-[#899A8B] hover:text-[#3E4A3D] transition truncate"
+                            >
                               <Globe size={14} className="flex-shrink-0" />{' '}
                               <span className="truncate">{acc.web}</span>
-                            </div>
+                            </a>
                           )}
                         </div>
                       </div>
@@ -1532,6 +1253,133 @@ export default function App() {
         </div>
       </section>
 
+      {/* --- SECCIÓN RUTA AUTOBÚS --- */}
+      <section id="autobus" className="py-16 md:py-20 px-4 relative bg-[#F7F5F0] border-t border-[#EAE6DF]">
+        <div className="max-w-5xl mx-auto relative z-10">
+          <FadeInSection>
+            <div className="text-center mb-12 md:mb-16">
+              <span className="text-[#899A8B] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">
+                Transporte
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif text-[#3E4A3D] mb-6">
+                Ruta del Autobús
+              </h2>
+              <p className="text-[#6B7264] font-light max-w-2xl mx-auto text-sm md:text-base">
+                Para vuestra mayor comodidad, dispondremos de un servicio de autobús que realizará el siguiente recorrido.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+              {/* RUTA DE IDA */}
+              <div className="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-[2rem] border border-[#EAE6DF] hover:border-[#899A8B] transition-colors duration-500 shadow-sm">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-12 flex items-center justify-center bg-[#F7F5F0] rounded-2xl shadow-sm border border-[#EAE6DF]">
+                    <Bus className="text-[#899A8B]" size={20} />
+                  </div>
+                  <h3 className="text-2xl font-serif text-[#3E4A3D]">Ruta de Ida</h3>
+                </div>
+                
+                <div className="relative pl-6 md:pl-8">
+                  {/* Línea conectora */}
+                  <div className="absolute left-[7px] md:left-[15px] top-2 bottom-2 w-px bg-[#EAE6DF]"></div>
+                  
+                  <div className="flex flex-col gap-5 md:gap-6">
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Intercambiador de Moncloa</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1 font-bold">Salida principal</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 1h 10m <span className="text-[#EAE6DF]">|</span> 95 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Torrecaballeros</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1">Parada intermedia</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 10 min <span className="text-[#EAE6DF]">|</span> 9 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Iglesia de Sotosalbos</p>
+                      <p className="text-[10px] text-[#C29B9B] uppercase tracking-widest mt-1 font-bold">Ceremonia</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 2 min <span className="text-[#EAE6DF]">|</span> 1 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-white border-[3px] border-[#C29B9B] rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Finca Mencía de Sotosalbos</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1">Continuación tras la ceremonia</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* RUTA DE VUELTA */}
+              <div className="bg-white/60 backdrop-blur-sm p-8 md:p-10 rounded-[2rem] border border-[#EAE6DF] hover:border-[#899A8B] transition-colors duration-500 shadow-sm">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="w-12 h-12 flex items-center justify-center bg-[#F7F5F0] rounded-2xl shadow-sm border border-[#EAE6DF]">
+                    <Bus className="text-[#C29B9B]" size={20} />
+                  </div>
+                  <h3 className="text-2xl font-serif text-[#3E4A3D]">Ruta de Vuelta</h3>
+                </div>
+                
+                <div className="relative pl-6 md:pl-8">
+                  {/* Línea conectora */}
+                  <div className="absolute left-[7px] md:left-[15px] top-2 bottom-2 w-px bg-[#EAE6DF]"></div>
+                  
+                  <div className="flex flex-col gap-5 md:gap-6">
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-white border-[3px] border-[#C29B9B] rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Finca Mencía de Sotosalbos</p>
+                      <p className="text-[10px] text-[#C29B9B] uppercase tracking-widest mt-1 font-bold">Fin de fiesta y recogida</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 2 min <span className="text-[#EAE6DF]">|</span> 1 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Iglesia de Sotosalbos</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1">Parada intermedia</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 10 min <span className="text-[#EAE6DF]">|</span> 9 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Torrecaballeros</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1">Parada intermedia</p>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-[#899A8B] text-[10px] font-bold uppercase tracking-widest bg-white w-fit px-3 py-1.5 rounded-full border border-[#EAE6DF] shadow-sm relative z-10 -ml-1">
+                       <Clock size={12} className="text-[#C29B9B]" /> 1h 10m <span className="text-[#EAE6DF]">|</span> 95 km
+                    </div>
+
+                    <div className="relative group">
+                      <div className="absolute -left-[33px] md:-left-[41px] top-1.5 w-4 h-4 bg-[#F7F5F0] border-[3px] border-[#899A8B] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+                      <p className="font-bold text-[#3E4A3D] text-lg">Intercambiador de Moncloa</p>
+                      <p className="text-[10px] text-[#899A8B] uppercase tracking-widest mt-1 font-bold">Fin del trayecto</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
       {/* RSVP Section */}
       <section
         id="rsvp"
@@ -1541,7 +1389,7 @@ export default function App() {
           <FadeInSection>
             <div className="text-center mb-12 md:mb-16">
               <span className="text-[#C29B9B] uppercase tracking-[0.3em] text-xs font-bold mb-4 block">
-                RSVP
+                Confirmación
               </span>
               <h2 className="text-3xl md:text-6xl font-serif text-white mb-4 md:mb-6">
                 ¿Nos acompañas?
@@ -1561,8 +1409,7 @@ export default function App() {
                 </h3>
                 <div className="bg-black/20 p-6 rounded-xl text-[#EAE6DF] text-sm italic mb-6">
                   <Sparkles size={12} className="inline text-[#C29B9B] mr-2" />
-                  Tus datos se han enviado a la hoja de confirmaciones de los
-                  novios.
+                  Tus datos se han enviado a la hoja de confirmaciones de los novios.
                 </div>
                 <button
                   onClick={() => setFormStatus('idle')}
@@ -1598,17 +1445,10 @@ export default function App() {
                         name="asistira"
                         className="w-full bg-transparent border-b border-[#F7F5F0]/30 py-3 text-base md:text-lg focus:outline-none focus:border-[#899A8B] transition-colors text-white appearance-none cursor-pointer"
                       >
-                        <option value="si" className="text-[#3E4A3D]">
-                          Sí, asisto
-                        </option>
-                        <option value="no" className="text-[#3E4A3D]">
-                          No puedo
-                        </option>
+                        <option value="si" className="text-[#3E4A3D]">Sí, asisto</option>
+                        <option value="no" className="text-[#3E4A3D]">No puedo</option>
                       </select>
-                      <ArrowRight
-                        className="absolute right-0 top-4 text-[#B3ABA2] pointer-events-none rotate-90"
-                        size={14}
-                      />
+                      <ArrowRight className="absolute right-0 top-4 text-[#B3ABA2] pointer-events-none rotate-90" size={14} />
                     </div>
                   </div>
                   <div className="group">
@@ -1675,9 +1515,7 @@ export default function App() {
                   disabled={formStatus === 'loading'}
                   className="w-full bg-[#C29B9B] text-white py-4 md:py-5 rounded-xl font-bold uppercase tracking-[0.2em] text-xs hover:bg-[#899A8B] transition-all shadow-lg disabled:opacity-50 mt-4"
                 >
-                  {formStatus === 'loading'
-                    ? 'Enviando...'
-                    : 'Enviar Respuesta'}
+                  {formStatus === 'loading' ? 'Enviando...' : 'Enviar Respuesta'}
                 </button>
 
                 {/* Enlace Eterno Digital */}
@@ -1688,15 +1526,9 @@ export default function App() {
                     rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2C3629] border border-[#F7F5F0]/10 hover:border-[#C29B9B]/50 hover:bg-[#232B21] transition-all duration-300"
                   >
-                    <Sparkles
-                      size={12}
-                      className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors"
-                    />
+                    <Sparkles size={12} className="text-[#899A8B] group-hover:text-[#C29B9B] transition-colors" />
                     <span className="text-[10px] uppercase tracking-widest font-medium text-[#B3ABA2] group-hover:text-[#EAE6DF] transition-colors">
-                      Web creada por{' '}
-                      <span className="text-white group-hover:text-[#C29B9B] font-bold ml-1">
-                        Eterno Digital
-                      </span>
+                      Web creada por <span className="text-white group-hover:text-[#C29B9B] font-bold ml-1">Eterno Digital</span>
                     </span>
                   </a>
                 </div>
@@ -1708,22 +1540,8 @@ export default function App() {
 
       {/* Footer Minimalista */}
       <footer className="bg-[#2A3327] text-[#8B9185] py-16 md:py-20 px-6 text-center border-t border-[#1F261D]">
-        <div className="max-w-md mx-auto mb-16">
-          <Gift size={32} className="mx-auto mb-6 opacity-40 text-[#899A8B]" />
-          <h3 className="font-serif text-xl md:text-2xl text-[#EAE6DF] italic mb-6">
-            Lista de Boda
-          </h3>
-          <div className="border border-[#F7F5F0]/10 rounded-xl p-6 md:p-8 bg-[#1F261D]/50">
-            <p className="text-xs uppercase tracking-widest mb-4 text-[#B3ABA2]">
-              Transferencia Bancaria
-            </p>
-            <p className="font-mono text-[#C29B9B] text-base md:text-lg tracking-wider select-all break-all">
-              ES12 3456 7890 12 1234567890
-            </p>
-          </div>
-        </div>
         <p className="text-[10px] uppercase tracking-[0.5em] opacity-40 hover:opacity-100 transition-opacity cursor-default">
-          Gemma & Miguel — 2027
+          Gemma y Miguel — 2027
         </p>
       </footer>
     </div>
