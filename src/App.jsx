@@ -189,11 +189,11 @@ const WalkingCats = () => {
 // Efecto de hojas cayendo
 const FallingLeaves = () => {
   const leaves = useMemo(() => [
-    { id: 0, startLeft: '20%', startTop: '-20%', endLeft: '30%', endTop: '120%', delay: 2.5, dur: 18, sway: 6, size: 45, rot: -20 },
-    { id: 1, startLeft: '-10%', startTop: '15%', endLeft: '40%', endTop: '120%', delay: 4.0, dur: 20, sway: 5, size: 52, rot: 15 },
-    { id: 2, startLeft: '80%', startTop: '-20%', endLeft: '60%', endTop: '120%', delay: 5.2, dur: 17, sway: 7, size: 42, rot: 45 },
-    { id: 3, startLeft: '110%', startTop: '25%', endLeft: '50%', endTop: '120%', delay: 7.5, dur: 22, sway: 6, size: 50, rot: -60 },
-    { id: 4, startLeft: '-10%', startTop: '45%', endLeft: '60%', endTop: '120%', delay: 8.8, dur: 19, sway: 5.5, size: 48, rot: 30 }
+    { id: 0, startLeft: '20%', startTop: '-20%', endLeft: '30%', endTop: '120%', delay: 0.5, dur: 18, sway: 6, size: 45, rot: -20 },
+    { id: 1, startLeft: '-10%', startTop: '15%', endLeft: '40%', endTop: '120%', delay: 2.0, dur: 20, sway: 5, size: 52, rot: 15 },
+    { id: 2, startLeft: '80%', startTop: '-20%', endLeft: '60%', endTop: '120%', delay: 3.2, dur: 17, sway: 7, size: 42, rot: 45 },
+    { id: 3, startLeft: '110%', startTop: '25%', endLeft: '50%', endTop: '120%', delay: 5.5, dur: 22, sway: 6, size: 50, rot: -60 },
+    { id: 4, startLeft: '-10%', startTop: '45%', endLeft: '60%', endTop: '120%', delay: 6.8, dur: 19, sway: 5.5, size: 48, rot: 30 }
   ], []);
 
   return (
@@ -230,7 +230,7 @@ const FallingLeaves = () => {
       {leaves.map((leaf) => (
         <div
           key={leaf.id}
-          className="anim-leaf-base text-stone-400"
+          className="anim-leaf-base text-[#899A8B]"
           style={{
             animationName: `leafFall${leaf.id}`,
             animationDelay: `${leaf.delay}s`,
@@ -284,7 +284,7 @@ const accommodations = [
     type: 'Casa Rural',
     desc: 'Encanto rural para grupos grandes. Max 12 pax.',
     contact: '600 38 50 93',
-    web: 'lacasaviejasotosalbos.lodgify.com',
+    web: 'villacristinasotosalbos.lodgify.com',
     tag: 'Sotosalbos',
   },
   {
@@ -340,42 +340,42 @@ const restaurants = [
   {
     name: 'La Chimenea',
     location: 'Sotosalbos',
-    desc: 'El sitio idóneo para el vermú o una comida sentada. César, su dueño, es puro encanto.',
+    desc: 'Es el sitio idóneo para tomar el vermú o disfrutar de una buena comida.',
     specialty: 'Vermú y Tradición',
     contact: '650 94 99 61',
   },
   {
     name: 'Alejandro Manrique',
     location: 'Sotosalbos',
-    desc: 'Horno de asar tradicional en el corazón del pueblo. Calidad y sabor segoviano auténtico.',
+    desc: 'Especialistas en asados tradicionales típicos de Segovia.',
     specialty: 'Horno de Asar',
     contact: '921 40 30 77',
   },
   {
     name: 'Paz&Pan',
     location: 'Sotosalbos',
-    desc: 'Un refugio acogedor donde el Mediterráneo y el Líbano se fusionan.',
+    desc: 'Un lugar acogedor donde el Mediterráno y el Líbano se fusionan.',
     specialty: 'Fusión Libanesa',
     contact: '921 12 89 42',
   },
   {
     name: 'El Rancho de la Aldegüela',
     location: 'Torrecaballeros',
-    desc: 'A 7 min. Un referente para cochinillo y cordero. Ideal comidas familiares.',
+    desc: 'A tan sólo 7 minutos de la finca, de lo mejor de la zona para cochinillo y cordero.',
     specialty: 'Asados Tradicionales',
     contact: '921 40 10 60',
   },
   {
     name: 'El Huerto de San Roque',
     location: 'Torrecaballeros',
-    desc: 'Un rincón con mucho encanto para disfrutar de la buena mesa en un entorno idílico.',
+    desc: 'Un rincón con mucho encanto para disfrutar de una buena comida en un entorno idílico.',
     specialty: 'Tradición y Calidad',
     contact: '641 03 26 00',
   },
   {
     name: 'Ta-Berna Horno de Asar',
     location: 'Collado Hermoso',
-    desc: 'Regentado por Berna y Nieves. Fantástico para un picoteo pre o post boda.',
+    desc: 'Muy cerca de la finca, lo regenta un matrimonio encantador y la comida es fantástica.',
     specialty: 'Picoteo y Calidad',
     contact: '921 40 30 61',
   },
@@ -724,9 +724,17 @@ export default function App() {
       
       <nav className="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-white/70 backdrop-blur-md border-b border-white/20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
-          <span className="text-3xl md:text-4xl text-stone-900 z-50 relative mt-1" style={{ fontFamily: "'Great Vibes', cursive" }}>
+          <a 
+            href="#inicio"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="text-3xl md:text-4xl text-stone-900 z-50 relative mt-1 cursor-pointer" 
+            style={{ fontFamily: "'Great Vibes', cursive" }}
+          >
             Gemma y Miguel
-          </span>
+          </a>
 
           <div className="flex space-x-3 md:space-x-10 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium items-center text-stone-500">
             <a 
@@ -763,7 +771,6 @@ export default function App() {
       <section id="historia" className="pt-10 md:pt-12 pb-16 md:pb-20 px-6 md:px-12 max-w-5xl mx-auto text-center relative z-20">
         <FadeInSection>
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 md:h-16 bg-gradient-to-b from-transparent to-amber-900/20"></div>
-          <Sparkles className="mx-auto text-amber-600 mb-6 md:mb-8 opacity-80" size={32} strokeWidth={1} />
           <h2 className="text-3xl md:text-6xl mb-6 md:mb-10 font-serif text-stone-900">Nuestra Historia</h2>
           <p className="text-base md:text-2xl leading-relaxed text-stone-600 font-light max-w-3xl mx-auto">
             Todo empezó casi sin planearlo, como esos encuentros que no te esperas… y terminó convirtiéndose en el viaje más bonito de nuestras vidas. Ahora, en Sotosalbos, entre sus calles de piedra y sus atardeceres dorados, diremos nuestro “sí, quiero”.
@@ -912,7 +919,7 @@ export default function App() {
             <div className="text-center mb-12 md:mb-16">
               <span className="text-amber-600/80 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Para Descansar</span>
               <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-6">Alojamientos Recomendados</h2>
-              <p className="text-stone-500 font-light max-w-2xl mx-auto text-sm md:text-base">Hemos seleccionado las mejores opciones cerca de la finca para que disfrutéis sin preocupaciones.</p>
+              <p className="text-stone-500 font-light max-w-2xl mx-auto text-sm md:text-base">Hemos seleccionado las mejores opciones cerca de la finca para que podáis disfrutar sin preocupaciones.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {accommodations.map((acc, index) => (
@@ -983,7 +990,7 @@ export default function App() {
             <div className="text-center mb-12 md:mb-16">
               <span className="text-amber-600/80 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Transporte</span>
               <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-6">Ruta del Autobús</h2>
-              <p className="text-stone-500 font-light max-w-2xl mx-auto text-sm md:text-base">Para vuestra mayor comodidad, dispondremos de un servicio de autobús que realizará el siguiente recorrido.</p>
+              <p className="text-stone-500 font-light max-w-2xl mx-auto text-sm md:text-base">Para mayor comodidad, dispondremos de un servicio de autobús que realizará el siguiente recorrido.</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
               <div className="group relative bg-stone-50 hover:bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] transition-all duration-500 border border-stone-100 hover:border-amber-100 hover:shadow-2xl hover:shadow-amber-900/5">
