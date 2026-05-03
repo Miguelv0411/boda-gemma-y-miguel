@@ -437,9 +437,7 @@ const Countdown = ({ targetDate }) => {
   return (
     <div className="flex justify-center items-center pt-8 md:pt-12 pb-4 md:pb-8 px-4 md:px-12 w-full">
       <TimeBox val={timeLeft.days} label="Días" />
-      <div className="h-12 md:h-20 w-px bg-amber-500/20"></div>
       <TimeBox val={timeLeft.hours} label="Horas" />
-      <div className="h-12 md:h-20 w-px bg-amber-500/20 hidden sm:block"></div>
       <TimeBox val={timeLeft.minutes} label="Min" />
     </div>
   );
@@ -456,6 +454,15 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loadingData, setLoadingData] = useState(false);
   const [expandedAcc, setExpandedAcc] = useState(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     document.title = 'Boda Gemma y Miguel 2027';
@@ -758,6 +765,12 @@ export default function App() {
         <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
         <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-full h-8 md:h-12 bg-gradient-to-t from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
+
+        {/* Indicador de Scroll */}
+        <div className={`md:hidden absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center gap-2 animate-bounce transition-opacity duration-500 ${hasScrolled ? 'opacity-0 pointer-events-none' : 'opacity-80'}`}>
+          <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza</span>
+          <ArrowRight size={14} className="text-stone-400 transform rotate-90" />
+        </div>
       </section>
 
       <section className="bg-transparent relative z-20 pt-8 md:pt-16">
@@ -841,6 +854,16 @@ export default function App() {
           </FadeInSection>
         </div>
       </section>
+
+      {/* Imagen Mencía de Sotosalbos */}
+      <div className="w-full flex justify-center py-8 md:py-12 relative z-10 bg-[#FAF9F6]">
+        <img 
+          src="https://i.postimg.cc/k4rnjqwH/f67fe8aa-7573-43a2-92f5-c6f72789c428.png" 
+          alt="Mencía de Sotosalbos" 
+          className="max-w-[380px] md:max-w-3xl w-full px-4 object-contain mix-blend-multiply"
+          style={{ filter: 'contrast(1.05) brightness(1.02)' }}
+        />
+      </div>
 
       <section id="itinerario" className="py-16 md:py-20 relative overflow-hidden bg-[#FAF9F6]">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
