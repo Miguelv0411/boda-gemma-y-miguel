@@ -767,9 +767,11 @@ export default function App() {
         <div className="absolute bottom-0 left-0 w-full h-8 md:h-12 bg-gradient-to-t from-[#FAF9F6] to-transparent z-20 pointer-events-none" />
 
         {/* Indicador de Scroll */}
-        <div className={`md:hidden absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center gap-2 animate-bounce transition-opacity duration-500 ${hasScrolled ? 'opacity-0 pointer-events-none' : 'opacity-80'}`}>
-          <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza</span>
-          <ArrowRight size={14} className="text-stone-400 transform rotate-90" />
+        <div className={`md:hidden absolute bottom-8 left-0 w-full flex justify-center z-30 transition-opacity duration-500 ${hasScrolled ? 'opacity-0 pointer-events-none' : 'opacity-80'}`}>
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza</span>
+            <ArrowRight size={14} className="text-stone-400 transform rotate-90" />
+          </div>
         </div>
       </section>
 
@@ -783,7 +785,6 @@ export default function App() {
 
       <section id="historia" className="pt-10 md:pt-12 pb-16 md:pb-20 px-6 md:px-12 max-w-5xl mx-auto text-center relative z-20">
         <FadeInSection>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 md:h-16 bg-gradient-to-b from-transparent to-amber-900/20"></div>
           <h2 className="text-3xl md:text-6xl mb-6 md:mb-10 font-serif text-stone-900">Nuestra Historia</h2>
           <p className="text-base md:text-2xl leading-relaxed text-stone-600 font-light max-w-3xl mx-auto">
             Todo empezó casi sin planearlo, como esos encuentros que no te esperas… y terminó convirtiéndose en el viaje más bonito de nuestras vidas. Ahora, en Sotosalbos, entre sus calles de piedra y sus atardeceres dorados, diremos nuestro “sí, quiero”.
@@ -871,7 +872,6 @@ export default function App() {
             <div className="text-center mb-12 md:mb-16">
               <span className="text-amber-600/80 text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Timeline</span>
               <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-6">El Gran Día</h2>
-              <div className="w-16 md:w-24 h-px bg-stone-300 mx-auto"></div>
             </div>
             <div className="relative">
               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-stone-300 transform md:-translate-x-1/2"></div>
