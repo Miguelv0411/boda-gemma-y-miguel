@@ -768,7 +768,7 @@ export default function App() {
 
         {/* Indicador de Scroll */}
         <div className={`md:hidden absolute bottom-8 left-0 w-full flex justify-center z-30 transition-opacity duration-500 ${hasScrolled ? 'opacity-0 pointer-events-none' : 'opacity-80'}`}>
-          <div className="flex flex-col items-center gap-2 animate-bounce">
+          <div className="flex flex-col items-center gap-2">
             <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza hacia abajo</span>
             <ArrowRight size={14} className="text-stone-400 transform rotate-90" />
           </div>
