@@ -769,7 +769,7 @@ export default function App() {
         {/* Indicador de Scroll */}
         <div className={`md:hidden absolute bottom-8 left-0 w-full flex justify-center z-30 transition-opacity duration-500 ${hasScrolled ? 'opacity-0 pointer-events-none' : 'opacity-80'}`}>
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza</span>
+            <span className="text-[9px] uppercase tracking-[0.4em] font-bold text-stone-500">Desliza hacia abajo</span>
             <ArrowRight size={14} className="text-stone-400 transform rotate-90" />
           </div>
         </div>
@@ -858,12 +858,13 @@ export default function App() {
 
       {/* Imagen Mencía de Sotosalbos */}
       <div className="w-full flex justify-center py-8 md:py-12 relative z-10 bg-[#FAF9F6]">
-        <img 
-          src="https://i.postimg.cc/k4rnjqwH/f67fe8aa-7573-43a2-92f5-c6f72789c428.png" 
-          alt="Mencía de Sotosalbos" 
-          className="max-w-[380px] md:max-w-3xl w-full px-4 object-contain mix-blend-multiply"
-          style={{ filter: 'contrast(1.05) brightness(1.02)' }}
-        />
+        <div className="max-w-[380px] md:max-w-3xl w-full px-4 flex justify-center">
+          <img 
+            src="https://i.postimg.cc/k4rnjqwH/f67fe8aa-7573-43a2-92f5-c6f72789c428.png" 
+            alt="Mencía de Sotosalbos" 
+            className="w-full object-contain mix-blend-darken brightness-[1.03] contrast-[1.05]"
+          />
+        </div>
       </div>
 
       <section id="itinerario" className="py-16 md:py-20 relative overflow-hidden bg-[#FAF9F6]">
